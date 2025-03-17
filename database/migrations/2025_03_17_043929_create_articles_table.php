@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('description');
             $table->string('slug');
             $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 

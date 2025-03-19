@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PerumahanController;
+use App\Http\Controllers\UserController;
 use App\Http\Middleware\EnsureIsUserPerumahan;
 use App\Http\Middleware\IzinTinggalPerumahan;
 use Illuminate\Http\Request;
@@ -22,3 +24,7 @@ Route::middleware([EnsureIsUserPerumahan::class, IzinTinggalPerumahan::class])->
         Route::get('perumahan', [PerumahanController::class, 'index']);
     });
 });
+
+Route::get('/user/{id}', [UserController::class, 'index']);
+Route::get('/home', HomeController::class);
+Route::get('/home/index', [HomeController::class, 'index']);

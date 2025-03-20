@@ -11,6 +11,7 @@
     @foreach ($postingan as $item)
     <h1>{{ $item->judul }}</h1>
     @endforeach
+
 </body>
 
 </html>

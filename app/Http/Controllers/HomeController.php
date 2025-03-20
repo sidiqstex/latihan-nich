@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Postingan;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -18,12 +19,17 @@ class HomeController extends Controller
 
     public function index()
     {
-        // $postingan = Postingan::orderBy('judul', 'DESC')->get();
-        // $postingan = DB::table('postingan')
-        // ->where('judul', 'like', '%something%')
-        // ->orderBy('judul', 'Desc')
-        // ->get();
-        $postingan = DB::select("SELECT * FROM postingan WHERE judul like '%%'");
+        // try {
+        //     $postingan = Postingan::findOrFail('C7A364AC-E451-4016-AC06-D1C850CA980B');
+        //     return view('home', ['postingan' => $postingan]);
+        // } catch (Exception $e) {
+        //     return abort(403);
+        // }
+        // $postingan = DB::table('testview')
+        //     ->where('judul', 'like', '%%')
+        //     ->get();
+
+        $postingan = DB::select(DB::raw("(SELECT * FROM postingan) as subquery"));
         return view('home', ['postingan' => $postingan]);
     }
 }

@@ -24,6 +24,7 @@ Route::middleware([EnsureIsUserPerumahan::class, IzinTinggalPerumahan::class])->
         Route::get('perumahan', [PerumahanController::class, 'index']);
     });
 });
+// Route::get('/perumahan', [PerumahanController::class, 'index'])->middleware(EnsureIsUserPerumahan::class);
 
 Route::get('/user/{id}', [UserController::class, 'index']);
 Route::get('/home', HomeController::class);

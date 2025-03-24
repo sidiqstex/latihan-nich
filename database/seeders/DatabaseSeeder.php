@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Postingan;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -22,9 +21,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call([
-            ArticleSeeder::class,
+            ArticleCategorySeeder::class,
+            ArticleSeeder::class
         ]);
-
-        Postingan::factory(100)->create();
     }
 }

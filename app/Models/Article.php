@@ -7,7 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
+    /** @use HasFactory<\Database\Factories\ArticleFactory> */
     use HasFactory;
-    protected $table = 'articles';
-    protected $guarded = ['created_at', 'updated_at'];
+    public function articleCategories()
+    {
+        return $this->belongsTo(ArticleCategory::class, 'category_id');
+    }
 }

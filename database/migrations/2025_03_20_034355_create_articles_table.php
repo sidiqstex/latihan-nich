@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\ArticleCategory;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,10 +14,14 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->string('title');
-            $table->string('description');
-            $table->string('slug');
+            $table->text('description');
+            $table->text('thumbnail');
+            // $table->foreignId('article_category_id')->constrained();
+            // $table->unsignedBigInteger('article_category_id');
+            // $table->foreign('article_category_id')->references('id')->on('article_categories');
+            $table->foreignIdFor(ArticleCategory::class, 'category_id')->constrained('article_categories');
+            $table->timestamps();
         });
     }
 

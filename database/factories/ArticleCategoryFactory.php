@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Postingan>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\ArticleCategory>
  */
-class PostinganFactory extends Factory
+class ArticleCategoryFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,9 +17,7 @@ class PostinganFactory extends Factory
     public function definition(): array
     {
         return [
-            'judul' => fake()->text(20),
-            'deskripsi' => fake()->realText(200),
-            'gambar' => fake()->imageUrl(640, 640)
+            'title' => fake()->text(20)
         ];
     }
 }

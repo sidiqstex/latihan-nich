@@ -16,7 +16,8 @@ class ArticleController extends Controller
         //     ->leftJoin('article_categories', 'articles.category_id', '=', 'article_categories.id')
         //     ->get();
 
-        $articles = Article::LeftJoinArticleCategory()->get();
+        // $articles = Article::LeftJoinArticleCategory()->get();
+        $articles = Article::with('articleCategories')->get(); //eiger load
         // dd($articles);
         return view('article', compact('articles', 'judul'));
     }

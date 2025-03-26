@@ -16,7 +16,7 @@ class ArticleController extends Controller
         //     ->leftJoin('article_categories', 'articles.category_id', '=', 'article_categories.id')
         //     ->get();
 
-        $articles = Article::selectRaw('articles.*,article_categories.title as category_title')->leftJoin('article_categories',  'articles.category_id', 'article_categories.id')->get();
+        $articles = Article::LeftJoinArticleCategory()->get();
         // dd($articles);
         return view('article', compact('articles', 'judul'));
     }

@@ -10,12 +10,13 @@
 
 <body>
     halaman article
-    @foreach ($articles as $item )
-        <h1>{{$item->title}}</h1>
-        <h6>Category : {{ $item->articleCategories->title }}</h6>
-        <p>{{$item->description}}</p>
-    @endforeach
-    {{ $articles->links('pagination::bootstrap-5') }}
+
+    <form action="{{ route('article.store') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        <input type="file" name="thumbnail" >
+        {{-- <input type="text" name="description" placeholder="description"> --}}
+        <button type="submit">Submit</button>
+    </form>
 </body>
 
 </html>

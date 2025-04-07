@@ -14,7 +14,8 @@ Route::get('/', function () {
 });
 
 
-Route::get('/article', [ArticleController::class, 'index']);
+Route::get('/article', [ArticleController::class, 'index'])->name('article.index');
+Route::post('/article/store', [ArticleController::class, 'store'])->name('article.store');
 
 Route::get('/article/{id}/{category}', function (Request $request, $id, $category) {
     return $id . $category . $request->order_by;

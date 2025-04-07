@@ -10,6 +10,7 @@ class Article extends Model
 {
     /** @use HasFactory<\Database\Factories\ArticleFactory> */
     use HasFactory;
+    protected $fillable = ['title', 'description', 'thumbnail', 'category_id'];
     public function articleCategories()
     {
         return $this->belongsTo(ArticleCategory::class, 'category_id');

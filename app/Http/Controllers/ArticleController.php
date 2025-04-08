@@ -11,6 +11,7 @@ class ArticleController extends Controller
 {
     public function index()
     {
+        // dd(session('user_email'));
 
         $judul = "Test Cuy";
         // $articles = Article::with('articleCategories')->get();

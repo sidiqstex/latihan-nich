@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreArticleRequest;
 use App\Models\Article;
 use App\Models\ArticleCategory;
 use Illuminate\Http\Request;
@@ -24,7 +25,7 @@ class ArticleController extends Controller
         return view('article', compact('articles', 'judul'));
     }
 
-    public function store(Request $request)
+    public function store(StoreArticleRequest $request)
     {
         // if ($request->has(['title', 'description'])) {
         //     dd('melakukan reindex google');
@@ -49,8 +50,8 @@ class ArticleController extends Controller
         //     dd('Yayayaya' . $request->title);
         // });
 
-        $path = $request->thumbnail->store('images');
-        dd($path);
+        // $path = $request->thumbnail->store('images');
+        // dd($path);
 
         // $article_category = ArticleCategory::inRandomOrder()->first();
         // Article::create([
@@ -61,5 +62,8 @@ class ArticleController extends Controller
         // ]); 
 
         // return redirect()->route('article.index');
+
+
+        dd('VAlid ya');
     }
 }

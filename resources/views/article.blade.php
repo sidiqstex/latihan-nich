@@ -11,11 +11,30 @@
 <body>
     halaman article
 
-    <form action="{{ route('article.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('article.store') }}" method="POST"  enctype="multipart/form-data">
         @csrf
-        <input type="file" name="thumbnail" >
-        {{-- <input type="text" name="description" placeholder="description"> --}}
-        <button type="submit">Submit</button>
+        <div class="d-flex flex-column gap-2">
+            <div class="mb-3">
+                @error('title')
+                    <div class="alert alert-danger">{{$message}}</div>
+                @enderror
+                <label for="title" class="form-label">Title</label>
+                <input type="text"  class="form-control @error('title') is-invalid
+                    
+                @enderror" name="title" placeholder="title">
+            </div>
+            <div class="mb-3">
+                @error('description')
+                    <div class="alert alert-danger">{{$message}}</div>
+                @enderror
+                <label for="description" class="form-label">Description</label>
+                <input type="text" class="form-control @error('description') is-invalid
+                    
+                @enderror" name="description" placeholder="description">
+            </div>
+            <button type="submit">Submit</button>
+
+        </div>
     </form>
 </body>
 
